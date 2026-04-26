@@ -14,7 +14,7 @@ jobs:
 
     - name: Enable .NET Framework 3.5
       run: |
-        dism /online /enable-feature /featurename:netfx3 /all /quiet /norestart
+        powershell -Command "Enable-WindowsOptionalFeature -Online -FeatureName NetFx3 -All -NoRestart"
       shell: cmd
 
     - name: Run Build.cmd
@@ -26,8 +26,5 @@ jobs:
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        name: ConfuserEx Custom Build ${{ github.ref_name }}
-        draft: false
-        prerelease: false
         files: |
           Build\ConfuserEx_bin.zip
