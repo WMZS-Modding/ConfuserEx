@@ -96,6 +96,8 @@
     <Compile Include="ControlFlow\SwitchMangler.cs" />
     <Compile Include="AntiDumpProtection.cs" />
     <Compile Include="AntiDebugProtection.cs" />
+    <Compile Include="AntiDecompilerProtection.cs" />
+    <Compile Include="AntiPaidDecompilerProtection.cs" />
     <Compile Include="InvalidMetadataProtection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReferenceProxy\x86Encoding.cs" />
