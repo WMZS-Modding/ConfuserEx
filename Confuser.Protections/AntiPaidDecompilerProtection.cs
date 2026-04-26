@@ -57,6 +57,7 @@ namespace Confuser.Protections
                     dispatchTable.Add(fragmentLabel);
                 }
 
+                /*
                 var decryptionKey = (uint)new Random().Next();
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldc_I4, (int)decryptionKey));
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldc_I4, 0));
@@ -67,6 +68,7 @@ namespace Confuser.Protections
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Call, module.Import(typeof(DateTime).GetMethod("get_Ticks"))));
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldc_I8, 1000000));
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Blt_S, dispatchTable[0]));
+                */
 
                 var rnd = new Random();
                 for (int i = 0; i < 50; i++)
@@ -100,11 +102,13 @@ namespace Confuser.Protections
                     method.DebugInfo.Scopes.Clear();
                 */
 
+                /*
                 var fakeMethod = new MethodDefUser("__CorruptMethod_" + Guid.NewGuid().ToString("N"));
                 fakeMethod.Attributes = MethodAttributes.PinvokeImpl | MethodAttributes.Static | MethodAttributes.Private;
                 fakeMethod.ImplAttributes = MethodImplAttributes.PreserveSig | MethodImplAttributes.Unmanaged;
                 fakeMethod.Signature = MethodSig.CreateStatic(method.Module.CorLibTypes.Void);
                 method.DeclaringType.Methods.Add(fakeMethod);
+                */
 
                 foreach (var local in method.Body.Variables)
                 {
@@ -134,10 +138,12 @@ namespace Confuser.Protections
                     method.Body.Instructions.Add(label);
                 }
 
+                /*
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldc_I4, 0xFFFFFFFF));
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldc_I4, 0x7FFFFFFF));
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Add_Ovf_Un));
                 method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldind_I4));
+                */
 
                 method.Body.MaxStack = (ushort)short.MaxValue;
             }
