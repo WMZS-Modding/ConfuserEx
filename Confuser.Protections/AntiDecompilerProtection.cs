@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace Confuser.Protections
 {
-    [AfterProtection("Flow control")]
     internal class AntiDecompilerProtection : Protection
     {
         public override string Name { get { return "Anti-Decompiler Protection"; } }
